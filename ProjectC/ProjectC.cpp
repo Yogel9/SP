@@ -40,12 +40,12 @@ void start()
 	cout << "Главный поток работает" << endl;
 	//Безопасность/Владение мьютексом/Имя
 	hMutex = CreateMutex(NULL, FALSE, "MutexAL");
-	HANDLE hEvents[4];
+	HANDLE hEvents[3];
 	//Безопасность/Автоматический сброс/Стартовоесостояние/Имя
 	hEvents[0] = CreateEvent(NULL, FALSE, FALSE, "EvStart");
 	hEvents[1] = CreateEvent(NULL, FALSE, FALSE, "EvStop");
 	hEvents[2] = CreateEvent(NULL, FALSE, FALSE, "EvExit");
-	hEvents[3] = CreateEvent(NULL, FALSE, FALSE, "EvConfirm");
+	HANDLE hEvConfirm = CreateEvent(NULL, FALSE, FALSE, "EvConfirm");
 	int i = 0;//ID потока
 	bool exit = false;
 
@@ -79,7 +79,7 @@ void start()
 			break;
 			}
 		} 
-		SetEvent(hEvents[3]);
+		SetEvent(hEvConfirm);
 	}
 
 	//закрытие всех объектов ядра
