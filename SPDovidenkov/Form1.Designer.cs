@@ -91,7 +91,7 @@ namespace SPDovidenkov
             "7",
             "8",
             "9"});
-            this.comboBox.Location = new System.Drawing.Point(11, 19);
+            this.comboBox.Location = new System.Drawing.Point(12, 28);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(266, 23);
             this.comboBox.TabIndex = 3;
